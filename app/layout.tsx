@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="min-h-screen">
+      <body className="px-2 min-h-screen">
         <Navbar />
         {children}
       </body>
