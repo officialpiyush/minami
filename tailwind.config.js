@@ -15,6 +15,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Cal Sans", "sans-serif", "Noto Color Emoji"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
