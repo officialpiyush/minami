@@ -19,7 +19,7 @@ export default function RootLayout({
         <div className="flex-shrink-0">
           <Navbar />
         </div>
-        <div className="flex flex-col w-full flex-1 max-w-5xl mx-auto">{children}</div>
+        <div className="flex flex-col w-full flex-1 max-w-6xl mx-auto">{children}</div>
       </body>
     </html>
   );
