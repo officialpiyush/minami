@@ -37,7 +37,7 @@ export default function MoodBoard() {
   }, [user]);
 
   return (
-    <div className="flex flex-1 flex-col items-center gap-12 font-fraunces">
+    <div className="flex flex-1 flex-col items-center gap-12 pb-6 font-fraunces">
       <div className="flex gap-4">
         <button
           onClick={() => {
