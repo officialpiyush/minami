@@ -26,3 +26,12 @@ model Meditation {
   duration  Int
   userId    String
 }
+
+model Moods {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  time      Int
+  mood      String
+  userId    String
+}
