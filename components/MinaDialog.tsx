@@ -31,9 +31,9 @@ export default function MinaDialog() {
   return (
     <Dialog>
       <DialogTrigger>
-        <button className="rounded p-4 bg-[#B99B6B]">
+        <div className="rounded p-4 bg-[#B99B6B]">
           <LucidePlus />
-        </button>
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
