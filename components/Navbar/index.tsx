@@ -1,7 +1,8 @@
 import { currentUser } from "@clerk/nextjs/app-beta";
-import Logo from "./icons/Logo";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import Logo from "../icons/Logo";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Link from "next/link";
+import NavUserPopup from "./UserPopup";
 
 export default async function Navbar() {
   const user = await currentUser();
@@ -17,13 +18,15 @@ export default async function Navbar() {
       <div className="scroll-m-20 text-2xl font-semibold">minami</div>
 
       <div>
-        <Avatar className="h-14 w-14">
-          <AvatarFallback>
-            <span className="text-2xl">👻</span>
-          </AvatarFallback>
-
-          <AvatarImage src={(user && user.profileImageUrl) || undefined} />
-        </Avatar>
+        {user ? (
+          <NavUserPopup user={user} />
+        ) : (
+          <Avatar className="h-14 w-14">
+            <AvatarFallback>
+              <span className="text-2xl">👻</span>
+            </AvatarFallback>
+          </Avatar>
+        )}
       </div>
     </div>
   );
