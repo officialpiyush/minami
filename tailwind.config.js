@@ -17,7 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Cal Sans", "sans-serif", "Noto Color Emoji"],
-        katibeh: ["Katibeh", "cursive"],
+        fraunces: ["Fraunces", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",
