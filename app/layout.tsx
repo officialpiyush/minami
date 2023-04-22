@@ -4,6 +4,7 @@ import "./globals.css";
 import "cal-sans";
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
 import WhiteNoise from "@/components/Audio/WhiteNoise";
+import ChangeBG from "@/components/ChangeBG";
 
 export const metadata = {
   title: "Minami",
@@ -23,11 +24,15 @@ export default function RootLayout({
             {/* @ts-expect-error Server Component */}
             <Navbar />
           </div>
-          <div id="rootElement" className="flex flex-col w-full flex-1 max-w-6xl mx-auto">
+          <div
+            id="rootElement"
+            className="flex flex-col w-full flex-1 max-w-6xl mx-auto"
+          >
             {children}
           </div>
 
           <WhiteNoise />
+          <ChangeBG color="#C9B9AC" textColor="#875834" />
         </body>
       </html>
     </ClerkProvider>
