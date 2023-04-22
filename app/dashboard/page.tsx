@@ -25,48 +25,91 @@ export default async function DashboardPage() {
         </div>
 
         {/* new double */}
-        <div id="double" className="h-full w-full flex flex-col gap-4">
-          <div className=" h-full ">
-            <div className="py-12">
+        <div id="double" className="h-full w-full flex flex-col">
+          <div>
+            <div className="py-8">
+              <Tile className="bg-[#AEC8B5]" title="MY BOARD" href="/board" />
+            </div>
+          </div>
+
+          <div className="h-full">
+            <div className="h-full pb-12">
               <Tile
-                className="bg-[#AEC8B5]"
-                title="MY BOARD"
-                href="/board"
+                className="bg-[#CDAE95]"
+                title="CHECK MY FOREST"
+                href="/forest"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* new double */}
+        <div id="double" className="h-full w-full flex flex-col gap-6">
+          <div className="h-full">
+            <div className="h-full">
+              <Tile
+                className="bg-[#CDC4BF]"
+                title="TRACK MY MOOD"
+                href="/track"
               />
             </div>
           </div>
 
-          <div className="h-full bg-yellow-600">K</div>
+          <div className="">
+            <div className="h-full pb-0 ">
+              <Tile
+                className="bg-[#C9B9AC]"
+                title="TALK TO THERAPIST"
+                href="/therapist/talk"
+              />
+            </div>
+          </div>
         </div>
 
         {/* new double */}
-        <div
-          id="double"
-          className="h-full w-full bg-red-900 flex flex-col gap-4"
-        >
-          <div className=" h-full bg-yellow-600">F</div>
+        <div id="double" className="h-full w-full flex flex-col gap-4">
+          <div className="pt-16 h-full">
+            <div className="h-full">
+              <Tile
+                className="bg-[#CDAE95]"
+                title="HOTLINE NUMBERS"
+                href="/hotline"
+              />
+            </div>
+          </div>
 
-          <div className="h-full bg-yellow-600">K</div>
+          <div className="pt-6 pb-8">
+            <div className="h-full ">
+              <Tile
+                className="bg-[#CDD8D9]"
+                title="FIND A THERAPIST"
+                href="/therapist/find"
+              />
+            </div>
+          </div>
         </div>
 
         {/* new double */}
-        <div
-          id="double"
-          className="h-full w-full bg-red-900 flex flex-col gap-4"
-        >
-          <div className=" h-full bg-yellow-600">F</div>
+        <div id="double" className="h-full w-full flex flex-col gap-4">
+          <div className="pt-2 h-full">
+            <div className="h-full">
+              <Tile
+                className="bg-[#AEC8B5]"
+                title="GAIN PEACE THROUGH MEDITATION"
+                href="/meditate"
+              />
+            </div>
+          </div>
 
-          <div className="h-full bg-yellow-600">K</div>
-        </div>
-
-        {/* new double */}
-        <div
-          id="double"
-          className="h-full w-full bg-red-900 flex flex-col gap-4"
-        >
-          <div className=" h-full bg-yellow-600">F</div>
-
-          <div className="h-full bg-yellow-600">K</div>
+          <div className="pt-6 pb-14">
+            <div className="h-full ">
+              <Tile
+                className="bg-[#DBCEC4]"
+                title="FELLOW MINAS"
+                href="/minas"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
