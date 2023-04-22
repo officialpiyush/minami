@@ -8,12 +8,12 @@ export default function WhiteNoise() {
 
   useEffect(() => {
     setAudio(new Audio("/sounds/WhiteNoise.mp3"));
-    audio!.loop = true;
   }, []);
 
   function toggleMusic() {
     if (audio!.paused) {
       audio!.play();
+      audio!.loop = true;
       setMusicPlaying(true);
     } else {
       audio!.pause();
