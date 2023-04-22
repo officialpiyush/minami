@@ -23,7 +23,7 @@ export default function RootLayout({
             {/* @ts-expect-error Server Component */}
             <Navbar />
           </div>
-          <div className="flex flex-col w-full flex-1 max-w-6xl mx-auto">
+          <div id="rootElement" className="flex flex-col w-full flex-1 max-w-6xl mx-auto">
             {children}
           </div>
 
