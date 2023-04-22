@@ -7,6 +7,7 @@ import WhiteNoise from "@/components/Audio/WhiteNoise";
 import ChangeBG from "@/components/ChangeBG";
 import { ToastProvider } from "@/components/ui/toast";
 import { Toaster } from "@/components/ui/toaster";
+import PlantTree from "@/components/PlantTree";
 
 export const metadata = {
   title: "Minami",
@@ -34,6 +35,7 @@ export default function RootLayout({
           </div>
 
           <WhiteNoise />
+          <PlantTree />
           <ChangeBG color="#C9B9AC" textColor="#875834" />
           <Toaster />
         </body>
