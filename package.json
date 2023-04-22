@@ -24,6 +24,7 @@
     "cal-sans": "^1.0.1",
     "class-variance-authority": "^0.5.2",
     "clsx": "^1.2.1",
+    "dayjs": "^1.11.7",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "lucide-react": "^0.171.0",
