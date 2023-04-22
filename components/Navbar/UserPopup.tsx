@@ -20,7 +20,7 @@ export default function NavUserPopup(props: NavUserPopupProps) {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar className="h-14 w-14">
-          <AvatarImage src={props.user.profileImageUrl} />
+          <AvatarImage className="h-14 w-14" src={props.user.profileImageUrl} />
           <AvatarFallback>
             <span>{props.user.primaryEmailAddressId}</span>
           </AvatarFallback>
