@@ -24,4 +24,5 @@ model Meditation {
   startedAt DateTime
   endedAt   DateTime
   duration  Int
+  userId    String
 }

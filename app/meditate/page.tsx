@@ -2,25 +2,49 @@
 
 import PulseIcon from "@/components/icons/PulseIcon";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MeditatePage() {
   const [isMeditating, setMeditating] = useState(false);
-  const [audio, setAudio] = useState(new Audio("/sounds/meditate.ogg"));
+  const [startTime, setStartTime] = useState<Date | null>(null);
+  const [audio, setAudio] = useState<HTMLAudioElement>();
   const [timeInterval, setTimeInterval] = useState<any>(null);
+
+  useEffect(() => {
+    const audio = new Audio("/sounds/meditate.ogg");
+    setAudio(audio);
+  }, []);
+
+  async function sendDataToServer() {
+    await fetch("/api/meditate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        startedAt: startTime?.getTime(),
+        endedAt: new Date().getTime(),
+      }),
+    });
+
+    setStartTime(null);
+  }
 
   const toggleMeditating = () => {
     setMeditating((prev) => !prev);
 
     if (isMeditating) {
-      audio.pause();
-      audio.currentTime = 0;
+      audio!.pause();
+      audio!.currentTime = 0;
       clearInterval(timeInterval);
       setTimeInterval(null);
+
+      sendDataToServer();
     } else {
-      audio.play();
+      setStartTime(new Date());
+      audio!.play();
       const interval = setInterval(() => {
-        audio.play();
+        audio!.play();
       }, 8000);
       setTimeInterval(interval);
     }
