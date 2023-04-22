@@ -17,3 +17,19 @@ export async function POST() {
 
   return new Response("OK", { status: 200 });
 }
+
+export async function GET() {
+  const user = await currentUser();
+
+  if (!user) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  const trees = await prisma.trees.findMany({
+    where: {
+      userId: user.id,
+    },
+  });
+
+  return new Response(JSON.stringify(trees), { status: 200 });
+}
