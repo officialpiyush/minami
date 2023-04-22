@@ -1,12 +1,12 @@
 import Tile from "@/components/Dashboard/tile";
 import { currentUser } from "@clerk/nextjs/app-beta";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
   const user = await currentUser();
 
   if (!user) {
-    return <Link href={"/"} />;
+    return redirect("/auth");
   }
 
   return (
