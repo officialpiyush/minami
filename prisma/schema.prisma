@@ -14,5 +14,14 @@ model Messages {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  message      String
+  message   String
+}
+
+model Meditation {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  startedAt DateTime
+  endedAt   DateTime
+  duration  Int
 }
