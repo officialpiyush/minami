@@ -1,5 +1,4 @@
 import PulseIcon from "@/components/icons/PulseIcon";
-import { Ping } from "@uiball/loaders";
 
 export default function MeditatePage() {
   return (
