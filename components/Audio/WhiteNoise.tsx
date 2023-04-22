@@ -1,26 +1,25 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 export default function WhiteNoise() {
   const [musicPlaying, setMusicPlaying] = useState(false);
-  const audio = new Audio("/sounds/WhiteNoise.mp3");
 
-  useEffect(() => {}, []);
+  const [audio, setAudio] = useState(new Audio("/sounds/WhiteNoise.mp3"));
 
-  const toggleMusic = () => {
-    console.log(audio.paused);
+  useEffect(() => {
+    audio.loop = true;
+  }, []);
 
+  function toggleMusic() {
     if (audio.paused) {
-      audio.pause();
       audio.play();
       setMusicPlaying(true);
     } else {
       audio.pause();
       setMusicPlaying(false);
     }
-  };
+  }
 
   return (
     <div className="absolute bottom-0 right-0 mr-4 mb-4">
