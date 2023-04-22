@@ -27,3 +27,23 @@ export async function POST(request: Request) {
 
   return new Response("Done!");
 }
+
+export async function GET(request: Request) {
+  const user = await currentUser();
+
+  if (!user) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  const meditations = await prisma.meditation.findMany({
+    where: {
+      userId: user.id,
+    },
+    select: {
+      duration: true,
+      startedAt: true,
+    },
+  });
+
+  return new Response(JSON.stringify(meditations));
+}
