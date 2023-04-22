@@ -9,3 +9,10 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Messages {
+  id        String   @id @map("_id")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  text      String
+}
