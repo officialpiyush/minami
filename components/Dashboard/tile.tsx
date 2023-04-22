@@ -15,7 +15,7 @@ export default function Tile(props: TileProps) {
           "h-full w-full",
           "text-[#532222]",
           "font-katibeh text-center",
-          "py-2 px-4 rounded-md",
+          "py-6 px-4 rounded-xl",
           "scroll-m-20 text-4xl font-semibold tracking-tight transition-colors first:mt-0",
           "flex items-center justify-center",
           props.className
