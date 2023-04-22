@@ -1,12 +1,29 @@
+"use client";
+
 interface MoodImageProps extends React.ComponentProps<"div"> {
   mood: string;
   image: string;
 }
 
 export default function MoodImage(props: MoodImageProps) {
+  const handleMoodClick = async () => {
+    await fetch("/api/track", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        mood: props.mood,
+      }),
+    });
+  };
+
   return (
     <div className="p-4 m-4 relative">
-      <div className="flex flex-col items-center">
+      <div
+        className="flex flex-col items-center hover:cursor-pointer"
+        onClick={handleMoodClick}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="z-10 ring-[12px] ring-[#969A8A] h-48 w-48 rounded-full"
