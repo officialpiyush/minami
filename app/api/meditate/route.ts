@@ -16,10 +16,6 @@ export async function POST(request: Request) {
 
   const duration = endedAt - startedAt;
 
-  console.log("duration", duration);
-
-  console.log("user", user)
-
   await prisma.meditation.create({
     data: {
       userId: user.id,
