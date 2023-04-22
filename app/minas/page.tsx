@@ -1,9 +1,9 @@
+import MinaBox from "@/components/MinaBox";
+import MinaDialog from "@/components/MinaDialog";
+import RemoveClass from "@/components/RemoveClass";
 import { currentUser } from "@clerk/nextjs/app-beta";
 import { User } from "@clerk/nextjs/dist/api";
 import { redirect } from "next/navigation";
-import prisma from "@/lib/prisma";
-import MinaBox from "@/components/MinaBox";
-import RemoveClass from "@/components/RemoveClass";
 
 export default async function MinaPage() {
   const user: User | null = await currentUser();
@@ -15,7 +15,18 @@ export default async function MinaPage() {
   //   const posts = await prisma.messages.findMany();
 
   return (
-    <div className="max-w-4xl mx-auto w-full flex flex-1 flex-col">
+    <div className="max-w-4xl mx-auto w-full flex flex-1 flex-col gap-4">
+      <div className="flex justify-between gap-4 items-center mt-4">
+        {/* <div></div> */}
+
+        <div className=" font-fraunces scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          Minnas Board!
+        </div>
+
+        <div>
+          <MinaDialog />
+        </div>
+      </div>
       <div className="flex flex-col gap-8 py-8 overflow-y-auto">
         <MinaBox
           message={`“Lorem Ipsum is simply dummy text of the printing and text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make”`}
