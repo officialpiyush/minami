@@ -15,6 +15,7 @@ export default function Tile(props: TileProps) {
           "h-full w-full",
           "text-[#532222]",
           " hover:bg-opacity-90",
+          "border-2",
           "font-fraunces text-center",
           "py-6 px-4 rounded-xl",
           "scroll-m-20 text-2xl font-semibold tracking-tight transition-colors first:mt-0",
