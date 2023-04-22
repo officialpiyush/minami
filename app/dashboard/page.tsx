@@ -20,7 +20,7 @@ export default async function DashboardPage() {
           <Tile
             className="bg-[#AEC8B5]"
             title="READ MORE ON CALMING THE TURBULENCE"
-            href="/blog"
+            href="/blogs"
           />
         </div>
 
