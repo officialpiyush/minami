@@ -9,6 +9,10 @@ import prisma from "@/lib/prisma";
 
 export default async function MinaPage() {
   const user: User | null = await currentUser();
+  if (!user) {
+    return redirect("/auth");
+  }
+
   let posts: string[] = (
     await prisma.messages.findMany({
       select: {
@@ -18,10 +22,6 @@ export default async function MinaPage() {
   )
     .map((post) => post.message)
     .reverse();
-
-  if (!user) {
-    return redirect("/auth");
-  }
 
   //   const posts = await prisma.messages.findMany();
 
