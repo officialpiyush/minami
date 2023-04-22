@@ -3,6 +3,7 @@ import "./globals.css";
 
 import "cal-sans";
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
+import WhiteNoise from "@/components/Audio/WhiteNoise";
 
 export const metadata = {
   title: "Minami",
@@ -25,6 +26,8 @@ export default function RootLayout({
           <div className="flex flex-col w-full flex-1 max-w-6xl mx-auto">
             {children}
           </div>
+
+          <WhiteNoise />
         </body>
       </html>
     </ClerkProvider>
