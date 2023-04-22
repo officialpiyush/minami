@@ -3,6 +3,12 @@
 import { getRandomArbitrary } from "@/lib/utils";
 import { CircleSlash2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 export default function Tree() {
   const [coords, setCoords] = useState({
@@ -24,18 +30,24 @@ export default function Tree() {
   }, []);
 
   return (
-    <div
-      style={{
-        top: `${coords.top}%`,
-        left: `${coords.left}%`,
-        bottom: `${coords.bottom}%`,
-        right: `${coords.right}%`,
-      }}
-      className="absolute px-4 py-4 z-20"
-    >
-      {/* <CircleSlash2 /> */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/icons/tree.svg" alt="tree" />
-    </div>
+    <Tooltip>
+      <TooltipTrigger>
+        <div
+          style={{
+            top: `${coords.top}%`,
+            left: `${coords.left}%`,
+            bottom: `${coords.bottom}%`,
+            right: `${coords.right}%`,
+          }}
+          className="absolute px-4 py-4 z-20"
+        >
+          {/* <CircleSlash2 /> */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/icons/tree.svg" alt="tree" />
+        </div>
+      </TooltipTrigger>
+
+      <TooltipContent>A Tree</TooltipContent>
+    </Tooltip>
   );
 }
