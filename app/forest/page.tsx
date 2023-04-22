@@ -20,7 +20,7 @@ export default function ForestPage() {
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           My Forest
         </h1>
-      <div className="relative h-1/2 w-1/2 bg-pink-900">
+      <div className="relative h-1/2 w-1/2">
         {/*  eslint-disable-next-line @next/next/no-img-element */}
         <img className="h-full w-full -z-10" src="/blob.png" alt="forest" />
 
@@ -31,7 +31,7 @@ export default function ForestPage() {
         <Tree />
         <Tree />
         <Tree />
-        
+
       </div>
 
       {/* <div className="flex flex-col gap-4">
