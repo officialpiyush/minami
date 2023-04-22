@@ -1,26 +1,32 @@
 "use client";
 
-import { useSignal, useComputed, useSignalEffect } from "@preact/signals-react";
 import { useUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { ChevronFirst, ChevronLast } from "lucide-react";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function MoodBoard() {
   const user = useUser();
-  const selectedMonth = useSignal(dayjs().month());
-  const selectedMonthText = useComputed(() =>
-    dayjs().month(selectedMonth.value).format("MMMM")
+
+  const [selectedMonth, setSelectedMonth] = useState(dayjs().month());
+  const [selectedMonthText, setSelectedMonthText] = useState(
+    dayjs().month(selectedMonth).format("MMMM")
   );
-  const selectedMonthsStartDay = useComputed(() =>
-    dayjs().month(selectedMonth.value).startOf("month").day()
+  const [selectedMonthsStartDay, setSelectedMonthsStartDay] = useState(
+    dayjs().month(selectedMonth).startOf("month").day()
   );
-  const selectedMonthsDays = useComputed(() =>
-    dayjs().month(selectedMonth.value).daysInMonth()
+  const [selectedMonthsDays, setSelectedMonthsDays] = useState(
+    dayjs().month(selectedMonth).daysInMonth()
   );
 
-  useSignalEffect(() => {});
+  useEffect(() => {
+    setSelectedMonthText(dayjs().month(selectedMonth).format("MMMM"));
+    setSelectedMonthsStartDay(
+      dayjs().month(selectedMonth).startOf("month").day()
+    );
+    setSelectedMonthsDays(dayjs().month(selectedMonth).daysInMonth());
+  }, [selectedMonth]);
 
   useEffect(() => {
     if (!user.isLoaded) return;
@@ -35,7 +41,7 @@ export default function MoodBoard() {
       <div className="flex gap-4">
         <button
           onClick={() => {
-            selectedMonth.value = selectedMonth.value - 1;
+            setSelectedMonth(selectedMonth - 1);
           }}
         >
           <ChevronFirst />
@@ -45,7 +51,7 @@ export default function MoodBoard() {
         </div>
         <button
           onClick={() => {
-            selectedMonth.value = selectedMonth.value + 1;
+            setSelectedMonth(selectedMonth + 1);
           }}
         >
           <ChevronLast />
@@ -63,12 +69,12 @@ export default function MoodBoard() {
             </div>
           ))}
 
-          {selectedMonthsStartDay.value > 0 &&
-            new Array(selectedMonthsStartDay.value)
+          {selectedMonthsStartDay > 0 &&
+            new Array(selectedMonthsStartDay)
               .fill(0)
               .map((_, index) => <div key={index} className="h-8 w-8" />)}
 
-          {new Array(selectedMonthsDays.value).fill(0).map((_, index) => (
+          {new Array(selectedMonthsDays).fill(0).map((_, index) => (
             <div
               key={index}
               className="h-16 w-16 flex items-center justify-center bg-[#AC917D] text-black"
