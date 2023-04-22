@@ -8,13 +8,13 @@ import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
 export default function ForestPage() {
-  //   const user = useUser();
+    const user = useUser();
 
-  //   useEffect(() => {
-  //     if (user.isLoaded && !user.isSignedIn) {
-  //       redirect("/auth");
-  //     }
-  //   }, [user]);
+    useEffect(() => {
+      if (user.isLoaded && !user.isSignedIn) {
+        redirect("/auth");
+      }
+    }, [user]);
 
   return (
     <TooltipProvider>
@@ -34,13 +34,6 @@ export default function ForestPage() {
           <Tree />
           <Tree />
         </div>
-
-        {/* <div className="flex flex-col gap-4">
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-7xl">
-          My Forest...
-        </h1>
-        <p className="leading-7 [&:not(:first-child)]:mt-6">Forest is a place where you can find all the trees.</p>
-      </div> */}
 
         <RemoveClass removeClass={["max-w-6xl"]} selector="#rootElement" />
       </div>
