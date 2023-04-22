@@ -4,19 +4,19 @@ import { useEffect, useState } from "react";
 
 export default function WhiteNoise() {
   const [musicPlaying, setMusicPlaying] = useState(false);
-
-  const [audio, setAudio] = useState(new Audio("/sounds/WhiteNoise.mp3"));
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audio.loop = true;
+    setAudio(new Audio("/sounds/WhiteNoise.mp3"));
+    audio!.loop = true;
   }, []);
 
   function toggleMusic() {
-    if (audio.paused) {
-      audio.play();
+    if (audio!.paused) {
+      audio!.play();
       setMusicPlaying(true);
     } else {
-      audio.pause();
+      audio!.pause();
       setMusicPlaying(false);
     }
   }
