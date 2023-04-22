@@ -5,6 +5,8 @@ import "cal-sans";
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
 import WhiteNoise from "@/components/Audio/WhiteNoise";
 import ChangeBG from "@/components/ChangeBG";
+import { ToastProvider } from "@/components/ui/toast";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "Minami",
@@ -33,6 +35,7 @@ export default function RootLayout({
 
           <WhiteNoise />
           <ChangeBG color="#C9B9AC" textColor="#875834" />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

@@ -1,11 +1,16 @@
 "use client";
 
+import { ToastAction } from "../ui/toast";
+import { useToast } from "../ui/use-toast";
+
 interface MoodImageProps extends React.ComponentProps<"div"> {
   mood: string;
   image: string;
 }
 
 export default function MoodImage(props: MoodImageProps) {
+  const { toast } = useToast();
+
   const handleMoodClick = async () => {
     await fetch("/api/track", {
       method: "POST",
@@ -15,6 +20,10 @@ export default function MoodImage(props: MoodImageProps) {
       body: JSON.stringify({
         mood: props.mood,
       }),
+    });
+
+    toast({
+      title: "Mood tracked!",
     });
   };
 
