@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { currentUser } from "@clerk/nextjs/app-beta";
+import { User } from "@clerk/nextjs/dist/api";
+import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const user: User | null = await currentUser();
+
   return (
     <div className="flex flex-1 items-center">
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -15,13 +20,25 @@ export default function Home() {
           </div>
 
           <div>
-            <Button>Sign In</Button>
+            {user ? (
+              <Link href="/dashboard">
+                <Button>Go to dashboard</Button>
+              </Link>
+            ) : (
+              <Link href="/auth">
+                <Button>Sign In</Button>
+              </Link>
+            )}
           </div>
         </div>
 
         <div className="col-span-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="h-full w-full rounded-full" src="/nyan.gif" alt="ket" />
+          <img
+            className="h-full w-full rounded-full"
+            src="/nyan.gif"
+            alt="ket"
+          />
         </div>
       </div>
     </div>
