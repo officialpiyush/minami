@@ -22,7 +22,7 @@ export default function WhiteNoise() {
   }
 
   return (
-    <div className="fixed bottom-0 right-0 mr-32 mb-4">
+    <div className="fixed bottom-0 right-0 mr-28 mb-4">
       <button
         onClick={toggleMusic}
         className="rounded-full p-2 border-2 flex items-center justify-center"
