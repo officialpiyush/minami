@@ -14,9 +14,8 @@ export default async function Home() {
             Your mind matters
           </div>
 
-          <div className="scroll-m-20 text-2xl font-semibold tracking-tight">
-            some inspirational text as to why you should help yourself with
-            Minami and how this is beneficial with a statistical fact
+          <div className="scroll-m-20 text-2xl font-semibold tracking-tight mr-16">
+          Navigating the ups and downs of life, giving a platform to find calm amidst the turbulence of waves, whilst giving you a gentle reminder that you are not alone.
           </div>
 
           <div>
