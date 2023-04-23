@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
 import dayjs from "dayjs";
 import { ChevronFirst, ChevronLast } from "lucide-react";
@@ -32,7 +33,7 @@ export default function MoodBoard() {
     if (!user.isLoaded) return;
 
     if (!user.isSignedIn) {
-      redirect("/login");
+      redirect("/auth");
     }
   }, [user]);
 
@@ -77,7 +78,11 @@ export default function MoodBoard() {
           {new Array(selectedMonthsDays).fill(0).map((_, index) => (
             <div
               key={index}
-              className="h-16 w-16 flex items-center justify-center bg-[#AC917D] text-black"
+              className={cn(
+                "h-16 w-16 flex items-center justify-center bg-[#AC917D] text-black border-2",
+                index === dayjs().date() - 1 &&
+                  "ring-[7px] ring-offset- ring-offset-[#C9B9AC] ring-[#E0D4CA] rouded-full"
+              )}
             >
               {index + 1}
             </div>
