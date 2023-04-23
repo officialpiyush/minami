@@ -42,11 +42,6 @@ public/audio/wind.wav
  */
 const sounds = [
   {
-    name: "Ambulance",
-    file: "/audio/ambulancesound.wav",
-    icon: <Siren className="text-[#c9b9ac]" />,
-  },
-  {
     name: "Birds",
     file: "/audio/birds.wav",
     icon: <Bird className="text-[#c9b9ac]" />,
