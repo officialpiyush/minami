@@ -43,7 +43,7 @@ public/audio/wind.wav
 const sounds = [
   {
     name: "Ambulance",
-    file: "/audio/ambulance sound.wav",
+    file: "/audio/ambulancesound.wav",
     icon: <Siren className="text-[#c9b9ac]" />,
   },
   {
@@ -107,7 +107,10 @@ export default function SoundSheet() {
 
   const toggleSound = (sound: string) => {
     const audio = audioObjects.find((audio) => audio.src.includes(sound));
+
+    console.log(audio);
     if (audio) {
+      console.log(audio);
       const paused = audio.paused;
 
       if (paused) {
@@ -132,9 +135,9 @@ export default function SoundSheet() {
       <Sheet>
         <SheetTrigger>
           <div className="fixed bottom-0 right-0 mr-4 mb-4">
-            <button className="p-2 bg-black rounded-full">
+            <div className="p-2 bg-black rounded-full">
               <Waves />
-            </button>
+            </div>
           </div>
         </SheetTrigger>
 
