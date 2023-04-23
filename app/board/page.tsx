@@ -56,6 +56,7 @@ export default function MoodBoard() {
 
   useEffect(() => {
     fetchDailyMood();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getMaxValueKey(obj: { [key: string]: number }): string {
