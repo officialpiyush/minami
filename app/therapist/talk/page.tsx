@@ -28,8 +28,8 @@ export default function TherapistTalk() {
         </div>
 
         <div className="col-span-4">
-          <div className="flex flex-col gap-6">
-            <div className="p-8 bg-[#e8e3d0] rounded-2xl h-full flex flex-col justify-centr gap-4">
+          <div className="h-full flex flex-col gap-6">
+            <div className="p-8 bg-[#e8e3d0] rounded-2xl h-full flex flex-col justify-center gap-4">
               <div>
                 <div className="uppercase text-center text-xl font-bold">
                   We know,
@@ -42,13 +42,24 @@ export default function TherapistTalk() {
               </div>
             </div>
 
-            <div className="p-8 bg-[#e8e3d0] rounded-2xl h-full flex flex-col justify-centr gap-4">
+            <div className="p-8 bg-[#e8e3d0] rounded-2xl h-full flex flex-col justify-center gap-4">
               <div className="flex flex-col gap-2">
                 <div className="uppercase text-center text-4xl font-bold">
                   {timeNow}
                 </div>
                 <div className=" text-opacity-40 text-center">
                   {dayjs().format("dddd, MMMM D, YYYY")}
+                </div>
+              </div>
+            </div>
+
+            <div className="p-8 bg-[#e8e3d0] rounded-2xl h-full flex flex-col justify-center gap-4">
+              <div className="flex flex-col gap-2">
+              <div className=" text-opacity-40 text-center">
+                  Talking to
+                </div>
+                <div className="uppercase text-center text-4xl font-bold">
+                  {"~"}
                 </div>
               </div>
             </div>
