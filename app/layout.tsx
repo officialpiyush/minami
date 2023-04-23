@@ -12,6 +12,13 @@ import "cal-sans";
 export const metadata = {
   title: "Minami",
   description: "<3",
+  icons: {
+    icon: {
+      url: "/favicon.png",
+      type: "image/png",
+    },
+    shortcut: { url: "/favicon.png", type: "image/png" },
+  },
 };
 
 export default function RootLayout({
