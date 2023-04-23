@@ -15,7 +15,11 @@ export default async function Navbar() {
         </div>
       </Link>
 
-      <div className="scroll-m-20 text-2xl font-semibold">minami</div>
+      <div className="scroll-m-20 text-2xl font-semibold">
+        <Link href={"/dashboard"} className="hover:underline decoration-wavy">
+          minami
+        </Link>
+      </div>
 
       <div>
         {user ? (
