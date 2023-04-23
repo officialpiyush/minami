@@ -16,9 +16,9 @@ const colors: Record<string, string> = {
 };
 
 const textColors: Record<string, string> = {
-  sad: "#3D220F",
-  angry: "#917d6d",
-  neutral: "#755e4e",
+  sad: "white",
+  angry: "white",
+  neutral: "white",
   calm: "white",
   happy: "white",
 };
@@ -153,6 +153,20 @@ export default function MoodBoard() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="flex gap-4">
+        {Object.entries(colors)
+          .reverse()
+          .map(([mood, color], index) => (
+            <div
+              key={index}
+              className="h-12 w-12 rounded-full flex items-center justify-center uppercase border-2"
+              style={{ backgroundColor: color, color: textColors[mood] }}
+            >
+              {mood.charAt(0)}
+            </div>
+          ))}
       </div>
     </div>
   );
