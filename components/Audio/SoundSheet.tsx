@@ -129,8 +129,8 @@ export default function SoundSheet() {
     <div>
       <Sheet>
         <SheetTrigger>
-          <div className="fixed bottom-0 right-0 mr-4 mb-4">
-            <div className="p-2 bg-black rounded-full">
+          <div className="fixed bottom-0 right-0 mr-8 mb-4">
+            <div className="p-4 bg-black rounded-full">
               <Waves />
             </div>
           </div>
@@ -168,6 +168,7 @@ export default function SoundSheet() {
                       defaultValue={[50]}
                       max={100}
                       step={1}
+                      // @ts-expect-error
                       onValueChange={(number: number) =>
                         toggleVolume(sound.file, number)
                       }
