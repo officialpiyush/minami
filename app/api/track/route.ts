@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/app-beta";
+import dayjs from "dayjs";
 
 export async function POST(request: Request) {
   const user = await currentUser();
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
   await prisma.moods.create({
     data: {
       mood,
-      time: new Date().getTime(),
+      time: dayjs().unix(),
       userId: user.id,
     },
   });

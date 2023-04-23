@@ -7,9 +7,26 @@ import { ChevronFirst, ChevronLast } from "lucide-react";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
+const colors: Record<string, string> = {
+  sad: "#ad9b8d",
+  angry: "#917d6d",
+  neutral: "#755e4e",
+  calm: "#917d6d",
+  happy: "#3D220F",
+};
+
+const textColors: Record<string, string> = {
+  sad: "#3D220F",
+  angry: "#917d6d",
+  neutral: "#755e4e",
+  calm: "white",
+  happy: "white",
+};
+
 export default function MoodBoard() {
   const user = useUser();
 
+  const [todayCount, setTodayCount] = useState(colors.sad);
   const [selectedMonth, setSelectedMonth] = useState(dayjs().month());
   const [selectedMonthText, setSelectedMonthText] = useState(
     dayjs().month(selectedMonth).format("MMMM")
@@ -36,6 +53,43 @@ export default function MoodBoard() {
       redirect("/auth");
     }
   }, [user]);
+
+  useEffect(() => {
+    fetchDailyMood();
+  }, []);
+
+  function getMaxValueKey(obj: { [key: string]: number }): string {
+    return Object.keys(obj).reduce((a, b) => (obj[a] > obj[b] ? a : b));
+  }
+
+  const fetchDailyMood = async () => {
+    const response = await fetch("/api/board", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        startDate: dayjs().startOf("day").unix(),
+        endDate: dayjs().endOf("day").unix(),
+      }),
+    });
+    const data = await response.json();
+
+    const counts = {
+      sad: 0,
+      angry: 0,
+      neutral: 0,
+      calm: 0,
+      happy: 0,
+    };
+    data.map((item: { mood: string }) => {
+      // @ts-expect-error
+      counts[item.mood]++;
+    });
+
+    const maxMood = getMaxValueKey(counts);
+    setTodayCount(maxMood);
+  };
 
   return (
     <div className="flex flex-1 flex-col items-center gap-12 pb-6 font-fraunces">
@@ -79,10 +133,21 @@ export default function MoodBoard() {
             <div
               key={index}
               className={cn(
-                "h-16 w-16 flex items-center justify-center bg-[#AC917D] text-black border-2",
-                index === dayjs().date() - 1 &&
-                  "ring-[7px] ring-offset- ring-offset-[#C9B9AC] ring-[#E0D4CA] rouded-full"
+                "h-16 w-16 flex items-center justify-center bg-[#AC917D] border-2",
+                index === dayjs().date() - 1
+                  ? "ring-[7px] ring-offset- ring-offset-[#C9B9AC] ring-[#E0D4CA] rouded-full"
+                  : "text-black "
               )}
+              style={{
+                backgroundColor:
+                  index === dayjs().date() - 1
+                    ? (colors[todayCount] as string)
+                    : "",
+                color:
+                  index === dayjs().date() - 1
+                    ? (textColors[todayCount] as string)
+                    : "",
+              }}
             >
               {index + 1}
             </div>
