@@ -23,6 +23,7 @@ import {
 } from "../ui/sheet";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Slider } from "../ui/slider";
 
 // list of all files from /public/audio
 /*
@@ -149,6 +150,17 @@ export default function SoundSheet() {
                     {sound.icon}
                   </button>
                   <span className="text-lg">{sound.name}</span>
+
+                  <div
+                    className={cn(
+                      "w-full",
+                      soundsPlaying.includes(sound.file)
+                        ? "opacity-100"
+                        : "opacity-0"
+                    )}
+                  >
+                    <Slider defaultValue={[50]} max={100} step={1} />
+                  </div>
                 </div>
               ))}
             </div>
