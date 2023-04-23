@@ -1,11 +1,13 @@
 "use client";
 
+import { DotWave } from "@uiball/loaders";
 import dayjs from "dayjs";
 import { PhoneCall } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function TherapistTalk() {
   const [timeNow, setTimeNow] = useState(dayjs().format("h:mm:ss A"));
+  const [isCalling, setIsCalling] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,10 +22,19 @@ export default function TherapistTalk() {
       <div className="h-[70vh] py8 w-full grid grid-cols-12 gap-6">
         <div className=" col-span-8">
           <div className="h-full bg-[#2B3242] text-[#e8e3d0] rounded-2xl flex flex-col items-center justify-center gap-6">
-            <div className="rounded-full p-6 bg-[#C9B9AC] text-[#2B3242] flex items-center justify-center">
-              <PhoneCall className="h-12 w-12" />
+            {isCalling ? (
+              <DotWave size={47} speed={1} color="#C9B9AC" />
+            ) : (
+              <div
+                onClick={() => setIsCalling(true)}
+                className="rounded-full p-6 bg-[#C9B9AC] text-[#2B3242] flex items-center justify-center"
+              >
+                <PhoneCall className="h-12 w-12" />
+              </div>
+            )}
+            <div className="text-2xl font-bold uppercase">
+              {isCalling ? "Calling..." : "Start a call"}
             </div>
-            <div className="text-2xl font-bold uppercase">Start a call</div>
           </div>
         </div>
 
@@ -55,11 +66,15 @@ export default function TherapistTalk() {
 
             <div className="p-8 bg-[#e8e3d0] rounded-2xl h-full flex flex-col justify-center gap-4">
               <div className="flex flex-col gap-2">
-              <div className=" text-opacity-40 text-center">
-                  Talking to
-                </div>
-                <div className="uppercase text-center text-4xl font-bold">
-                  {"~"}
+                <div className=" text-opacity-40 text-center">Talking to</div>
+                <div className="uppercase text-center text-4xl font-bold flex justify-center">
+                  {!isCalling ? (
+                    "~"
+                  ) : (
+                    <div className="py-2">
+                      <DotWave size={47} speed={1} color="#2B3242" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
