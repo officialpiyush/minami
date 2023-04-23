@@ -134,17 +134,20 @@ export default function MoodBoard() {
               key={index}
               className={cn(
                 "h-16 w-16 flex items-center justify-center bg-[#AC917D] border-2",
-                index === dayjs().date() - 1
+                index === dayjs().date() - 1 &&
+                  dayjs().month() === selectedMonth
                   ? "ring-[7px] ring-offset- ring-offset-[#C9B9AC] ring-[#E0D4CA] rouded-full"
                   : "text-black "
               )}
               style={{
                 backgroundColor:
-                  index === dayjs().date() - 1
+                  index === dayjs().date() - 1 &&
+                  dayjs().month() === selectedMonth
                     ? (colors[todayCount] as string)
                     : "",
                 color:
-                  index === dayjs().date() - 1
+                  index === dayjs().date() - 1 &&
+                  dayjs().month() === selectedMonth
                     ? (textColors[todayCount] as string)
                     : "",
               }}
