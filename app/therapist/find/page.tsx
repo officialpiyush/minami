@@ -1,16 +1,18 @@
+"use client";
+
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { faker } from "@faker-js/faker";
 import { UserPlus } from "lucide-react";
 import Link from "next/link";
 
-export default function TherapistFindPage() {
-  const therapists = new Array(21).fill(0).map(() => ({
-    name: faker.name.fullName(),
-    avatar: faker.image.avatar(),
-    location: `${faker.address.city()}, ${faker.address.state()} ${faker.address.zipCode()} ${faker.address.country()}`,
-    contact: faker.phone.number(),
-  }));
+const therapists = new Array(21).fill(0).map(() => ({
+  name: faker.name.fullName(),
+  avatar: faker.image.avatar(),
+  location: `${faker.address.city()}, ${faker.address.state()} ${faker.address.zipCode()} ${faker.address.country()}`,
+  contact: faker.phone.number(),
+}));
 
+export default function TherapistFindPage() {
   return (
     <div className="flex flex-1 flex-col gap-4 pb-4 font-fraunces">
       <div className="flex justify-between items-center">

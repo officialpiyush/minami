@@ -1,17 +1,7 @@
-// https://www.lavendaire.com/on-healing/
+"use client";
 
 import Link from "next/link";
 
-// https://positivepsychology.com/counseling-session/
-
-// https://www.psychologytoday.com/intl/blog/the-relatable-therapist/202304/how-to-deal-with-morning-anxiety
-
-// https://www.lavendaire.com/10-questions-ask/
-// https://www.verywellmind.com/how-helping-the-environment-can-make-you-feel-better-5296131
-
-// https://www.headspace.com/mindfulness/self-care-ideas
-
-// https://www.headspace.com/stress/tragedy-tragic-events
 const blogs = [
   {
     title: "On Healing & The Power of Perspective",
