@@ -1,14 +1,13 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-import "cal-sans";
-import { ClerkProvider } from "@clerk/nextjs/app-beta";
+import SoundSheet from "@/components/Audio/SoundSheet";
 import WhiteNoise from "@/components/Audio/WhiteNoise";
 import ChangeBG from "@/components/ChangeBG";
-import { ToastProvider } from "@/components/ui/toast";
-import { Toaster } from "@/components/ui/toaster";
 import PlantTree from "@/components/PlantTree";
-import SoundSheet from "@/components/Audio/SoundSheet";
+import { Toaster } from "@/components/ui/toaster";
+import { ClerkProvider } from "@clerk/nextjs/app-beta";
+import "cal-sans";
 
 export const metadata = {
   title: "Minami",
