@@ -33,11 +33,21 @@ export default async function DashboardPage() {
           </div>
 
           <div className="h-full">
-            <div className="h-full pb-12">
+            <div className="h-full pb-6">
               <Tile
                 className="bg-[#CDAE95]"
                 title="CHECK MY FOREST"
                 href="/forest"
+              />
+            </div>
+          </div>
+
+          <div className="py-4">
+            <div className="">
+              <Tile
+                className="bg-[#CDAE95]"
+                title="Donate"
+                href="/donate"
               />
             </div>
           </div>
