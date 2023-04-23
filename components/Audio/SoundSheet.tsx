@@ -120,6 +120,13 @@ export default function SoundSheet() {
     }
   };
 
+  const toggleVolume = (sound: string, volume: number) => {
+    const audio = audioObjects.find((audio) => audio.src.includes(sound));
+    if (audio) {
+      audio.volume = volume / 100;
+    }
+  };
+
   return (
     <div>
       <Sheet>
@@ -159,7 +166,14 @@ export default function SoundSheet() {
                         : "opacity-0"
                     )}
                   >
-                    <Slider defaultValue={[50]} max={100} step={1} />
+                    <Slider
+                      defaultValue={[50]}
+                      max={100}
+                      step={1}
+                      onValueChange={(number: number) =>
+                        toggleVolume(sound.file, number)
+                      }
+                    />
                   </div>
                 </div>
               ))}
