@@ -34,7 +34,6 @@ export default function RootLayout({
             {children}
           </div>
 
-          <WhiteNoise />
           <SoundSheet />
           <PlantTree />
           <ChangeBG color="#C9B9AC" textColor="#875834" />
